@@ -1,0 +1,17 @@
+@import 'variables.less';
+@import 'reset.less';
+@import 'fonts.less';
+
+body{
+	padding-top: @HEADER_HEIGHT;
+}
+
+main#main-content{
+	min-height: calc(~"100% - @{FOOTER_HEIGHT}");
+	padding: 20px 0;
+}
+
+.container{
+	width: 800px;
+	margin: 0 auto;
+}
