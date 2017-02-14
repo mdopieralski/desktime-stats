@@ -1,0 +1,1 @@
+Simple Angular2 app, which loads data from [Desktime API](https://desktime.com) and allows you to calculate your earnings and some more cool stats.
