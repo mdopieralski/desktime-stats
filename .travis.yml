@@ -6,6 +6,7 @@ install:
 - npm install typings
 - npm install protractor
 - npm install http-server -g
+- npm install selenium-webdriver
 - npm install
 before_script:
   - export DISPLAY=:99.0
