@@ -6,11 +6,16 @@ import { HomeRoutes } from './home/home.routes';
 import { SettingsRoutes } from './settings/settings.routes';
 import { StatsRoutes } from './stats/stats.routes';
 
+import { TimetableComponent } from './stats/time-table/time-table.component';
+
 export const Components = {
-	root: RootComponent,
-	routes: [
-		HomeRoutes,
-		SettingsRoutes,
-		StatsRoutes,
-	]
+    root: RootComponent,
+    stateless: [
+        TimetableComponent
+    ],
+    routes: [
+        HomeRoutes,
+        SettingsRoutes,
+        StatsRoutes,
+    ]
 };
