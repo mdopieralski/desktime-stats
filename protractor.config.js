@@ -1,6 +1,7 @@
 require('ts-node/register');
 
 exports.config = {
+  seleniumAddress: 'http://localhost:4444/wd/hub',
   baseUrl: 'http://localhost:3000/',
   specs: [
     'src/**/**.e2e.ts',
