@@ -6,8 +6,10 @@ before_install:
   - "sh -e /etc/init.d/xvfb start"
 install:
 - npm install typings
+- npm install protractor
 - npm install
 script:
 - npm run tslint
 - npm test
 - npm run build:local
+- npm run protractor
