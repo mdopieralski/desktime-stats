@@ -1,0 +1,36 @@
+@import '../../../../assets/styles/variables.less';
+
+section.time-table{
+    margin-bottom: 20px;
+
+    table{
+        position: relative;
+
+        &.sticky-header{
+
+            tr.filter{
+                td{
+                    padding: 0;
+                }
+                .filter-reset{
+                    position: absolute;
+                    top: 15px;
+                    right: 10px;
+                    width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    line-height: 30px;
+                    border-radius: 100%;
+                    color: @DT_GREEN;
+                    cursor: pointer;
+                }
+            }
+        }
+        &.records{
+
+        }
+        &.sticky-footer{
+
+        }
+    }
+}

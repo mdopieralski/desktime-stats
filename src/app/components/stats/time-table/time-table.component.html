@@ -1,0 +1,40 @@
+<section class="time-table">
+	<table class="sticky-header">
+		<thead>
+			<tr class="filter">
+				<td colspan="2">
+					<input type="text" name="filter" id="filter" [(ngModel)]="filterValue" placeholder="Filter by name" (input)="setFilter(true)">
+					<span class="filter-reset" (click)="setFilter(false)" *ngIf="filterValue">&#10005;</span>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Name
+				</th>
+				<th>
+					Price
+				</th>
+			</tr>
+		</thead>
+	</table>
+	<table class="records">
+		<tbody>
+			<tr *ngFor="let app of data" class="{{ !app.visible && 'hidden' }}">
+				<td>
+					{{ app.name }}
+				</td>
+				<td>
+					{{ app.valueText }}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="sticky-footer">
+		<tbody>
+			<tr>
+				<td>Summary</td>
+				<td>{{ summaryValueText }}</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

@@ -1,3 +1,15 @@
 <div class="container">
-	<h1>stats</h1>
+	<article class="card">
+		<header class="card-header">
+			<h1 class="card-title">
+				Stats
+			</h1>
+		</header>
+		<d-spinner *ngIf="!statsLoaded"></d-spinner>
+		<section class="stats" *ngIf="statsLoaded">
+			<time-table [table-data]="employee.apps.productive"></time-table>
+			<time-table [table-data]="employee.apps.neutral"></time-table>
+			<time-table [table-data]="employee.apps.unproductive"></time-table>
+		</section>
+	</article>
 </div>
