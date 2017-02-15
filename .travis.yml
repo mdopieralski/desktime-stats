@@ -1,6 +1,10 @@
 language: node_js
 node_js:
 - 6
+install:
+- npm install typings
+- npm install
 script:
+- npm run tslint
 - npm test
 - npm run build:local
