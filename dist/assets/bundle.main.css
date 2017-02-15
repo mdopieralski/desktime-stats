@@ -1,0 +1,435 @@
+ul.steps {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+ul.steps li span {
+  font-size: 30px;
+  color: #5fb92a;
+}
+section.time-table {
+  margin-bottom: 20px;
+}
+section.time-table table {
+  position: relative;
+}
+section.time-table table.sticky-header tr.filter td {
+  padding: 0;
+}
+section.time-table table.sticky-header tr.filter .filter-reset {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 100%;
+  color: #5fb92a;
+  cursor: pointer;
+}
+[d-header] {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  background-color: #5fb92a;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  padding: 15px 30px;
+  display: inline-block;
+  z-index: 999;
+}
+[d-header] figure.page-logo {
+  width: 30px;
+  display: inline-block;
+  float: left;
+}
+[d-header] h1.page-title {
+  display: inline-block;
+  float: left;
+  font-size: 15px;
+  font-family: 'Lato Thin';
+  margin: 0;
+  line-height: 30px;
+  letter-spacing: 2px;
+  margin-left: 15px;
+  text-transform: uppercase;
+}
+[d-header] h1.page-title a {
+  color: #fff;
+  text-decoration: none;
+}
+[d-header] nav.page-nav {
+  display: inline-block;
+  float: right;
+}
+[d-header] nav.page-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+[d-header] nav.page-nav ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+[d-header] nav.page-nav ul li a {
+  color: #fff;
+  font-family: 'Lato Light';
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 15px;
+  line-height: 1;
+  padding: 7.5px 10px;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+[d-header] nav.page-nav ul li a.active {
+  background-color: #fff;
+  color: #5fb92a;
+}
+[d-footer] {
+  height: 50px;
+  background-color: #181F23;
+  color: #777B7F;
+  text-transform: uppercase;
+  font-family: 'Lato Thin';
+  text-align: center;
+}
+[d-footer] a {
+  color: #5fb92a;
+  text-decoration: none;
+  line-height: 50px;
+  text-transform: lowercase;
+}
+[d-footer] a svg {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-bottom: -9px;
+  margin-right: 7px;
+}
+.d-spinner {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+}
+.d-spinner:before,
+.d-spinner:after {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  border-radius: 50%;
+  border-style: solid;
+  border-top-color: #5fb92a;
+  border-right-color: #e02066;
+  border-bottom-color: #ff6600;
+  border-left-color: #58bff9;
+  content: '';
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-animation: rotate 1.5s infinite ease-in-out;
+          animation: rotate 1.5s infinite ease-in-out;
+}
+.d-spinner:before {
+  border-width: 20px;
+}
+.d-spinner:after {
+  width: 50px;
+  height: 50px;
+  border-width: 5px;
+  -webkit-animation-direction: reverse;
+          animation-direction: reverse;
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+nav ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+del {
+  text-decoration: line-through;
+}
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+input,
+select {
+  vertical-align: middle;
+}
+* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'Lato Thin';
+  src: url('/assets/fonts/lato-thin-webfont.eot');
+  src: url('/assets/fonts/lato-thin-webfont.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/lato-thin-webfont.woff2') format('woff2'), url('/assets/fonts/lato-thin-webfont.woff') format('woff'), url('/assets/fonts/lato-thin-webfont.ttf') format('truetype'), url('/assets/fonts/lato-thin-webfont.svg#latothin') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato Light';
+  src: url('/assets/fonts/lato-light-webfont.eot');
+  src: url('/assets/fonts/lato-light-webfont.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/lato-light-webfont.woff2') format('woff2'), url('/assets/fonts/lato-light-webfont.woff') format('woff'), url('/assets/fonts/lato-light-webfont.ttf') format('truetype'), url('/assets/fonts/lato-light-webfont.svg#latolight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato Regular';
+  src: url('/assets/fonts/lato-regular-webfont.eot');
+  src: url('/assets/fonts/lato-regular-webfont.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/lato-regular-webfont.woff2') format('woff2'), url('/assets/fonts/lato-regular-webfont.woff') format('woff'), url('/assets/fonts/lato-regular-webfont.ttf') format('truetype'), url('/assets/fonts/lato-regular-webfont.svg#latoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+label {
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+}
+input[type="text"] {
+  border: 0;
+  outline: 0;
+  padding: 14px 0;
+  border-bottom: 2px solid #777B7F;
+  font-size: 15px;
+  width: 100%;
+}
+input[type="text"]:focus {
+  border-color: #5fb92a;
+}
+button[type="submit"] {
+  border: 0;
+  background-color: #5fb92a;
+  font-size: 15px;
+  color: #fff;
+  font-family: 'Lato Thin';
+  padding: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+button[type="submit"]:focus,
+button[type="submit"]:active {
+  outline: 0;
+}
+table {
+  width: 100%;
+  font-family: 'Lato Light';
+}
+table thead th {
+  background-color: #777B7F;
+  color: #fff;
+  font-family: 'Lato Thin';
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 15px;
+}
+table tr th,
+table tr td {
+  padding: 5px 10px;
+}
+table tr td {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+body {
+  font-family: 'Lato Light';
+  padding-top: 60px;
+}
+img {
+  max-width: 100%;
+}
+main#main-content {
+  min-height: calc(100% - 50px);
+  padding: 20px 0;
+  background-color: #e5e5e5;
+}
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+.hidden {
+  display: none;
+}
+article.card {
+  background-color: #fff;
+  padding: 30px 20px;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+}
+article.card header.card-header {
+  border-left: 2px solid #5fb92a;
+  margin-bottom: 20px;
+}
+article.card header.card-header h1.card-title {
+  text-transform: uppercase;
+  font-family: 'Lato Thin';
+  color: #181F23;
+  font-size: 20px;
+  margin: 0;
+  padding: 20px 15px;
+  letter-spacing: 2px;
+}
