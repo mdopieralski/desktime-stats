@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'desktime-stats-app',
-	template: `
+    selector: 'desktime-stats-app',
+    template: `
 		<header d-header></header>
 		<main id="main-content">
 			<ui-view></ui-view>
@@ -11,5 +11,5 @@ import { Component } from '@angular/core';
 	`
 })
 export class RootComponent {
-	name = 'Angular';
+    name = 'Angular';
 }
