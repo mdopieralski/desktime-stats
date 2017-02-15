@@ -1,3 +1,22 @@
 <div class="container">
-	<h1>settings</h1>
+	<article class="card">
+		<header class="card-header">
+			<h1 class="card-title">
+				Settings
+			</h1>
+		</header>
+		<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+			<label for="apiKey">
+				Api key
+				<input type="text" name="apiKey" id="apiKey" [(ngModel)]="settingsModel.apiKey" required/>
+			</label>
+			<label for="hourValue">
+				Hour value
+				<input type="text" name="hourValue" id="hourValue" [(ngModel)]="settingsModel.hourValue" required/>
+			</label>
+			<button type="submit">
+				Save
+			</button>
+		</form>
+	</article>
 </div>
