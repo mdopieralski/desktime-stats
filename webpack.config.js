@@ -3,17 +3,13 @@
 const Webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// import HtmlWebpackPlugin from 'html-webpack-plugin';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const USE_CONFIG = JSON.stringify(process.env.USE_CONFIG) || 'build';
-const IS_BUILD = process.argv.indexOf('--build') !== -1;
-const IS_TEST = USE_CONFIG.indexOf('test') > -1;
+const USE_CONFIG = process.env.USE_CONFIG || 'local';
+const IS_BUILD = process.env.BUILD === 'true';
+const IS_TEST = process.env.TEST === 'true';
 
-// if (!IS_BUILD && !IS_TEST) {
-
-//   var Dashboard = require('webpack-dashboard');
-//   var DashboardPlugin = require('webpack-dashboard/plugin');
-// }
+console.dir({ IS_TEST, IS_BUILD, USE_CONFIG });
 
 const CONFIG = {
   context: __dirname + '/src',
@@ -53,21 +49,22 @@ const CONFIG = {
     //   jQuery: 'jquery',
     //   ZeroClipboard: 'zeroclipboard'
     // }),
-    // new HtmlWebpackPlugin({
-    //   template: './index.ejs',
-    //   filename: IS_BUILD ? '../index.html' : 'index.html',
-    //   IS_BUILD: IS_BUILD,
-    //   E2E_TEST: false
-    // })
+    new HtmlWebpackPlugin({
+      template: './index.ejs',
+      filename: IS_BUILD ? '../index.html' : 'index.html',
+      IS_BUILD: IS_BUILD,
+      E2E_TEST: false,
+      inject: false
+    })
   ],
   module: {
     rules: [{
         test: /\.ts$/,
-        exclude: /(node_modules|vendor|\*.spec.js)/,
-        loaders: ['ts-loader'],
+        exclude: /(node_modules|\*.spec.(js|ts)|\.*.d.ts)/,
+        loaders: ['babel-loader', 'ts-loader'],
       }, {
         test: /\.html$/,
-        loader: 'raw-loader!html-minify-loader'
+        loaders: ['raw-loader']
       }, {
         test: /\.less$/,
         loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader!postcss-loader!less-loader' })
@@ -76,19 +73,14 @@ const CONFIG = {
         loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
       }, {
         test: /\.((woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(woff2?|svg|jpe?g|png|gif|ico)$/,
-        loader: 'url',
+        loaders: ['url'],
         exclude: /(img)/,
       }, {
         test: /\.((ttf|otf|eot)(\?v=[0-9]\.[0-9]\.[0-9]))|(ttf|otf|eot)$/,
-        loader: 'file'
+        loaders: ['file']
       }
     ]
   },
-  // postcss() {
-  //   return [
-  //     autoprefixer
-  //   ];
-  // }
   devServer: {
     port: 8080,
     host: 'localhost',
@@ -100,29 +92,29 @@ const CONFIG = {
   }
 };
 
-// switch (IS_BUILD) {
+switch (IS_BUILD) {
 
-//   case true:
+  case true:
 
-//     CONFIG.plugins.push(
+    CONFIG.plugins.push(
 
-//       new Webpack.optimize.UglifyJsPlugin({
-//         minimize: true,
-//         compress: true,
-//         comments: false
-//       })
-//     );
-//     break;
+      new Webpack.optimize.UglifyJsPlugin({
+        minimize: true,
+        compress: true,
+        comments: false
+      })
+    );
+    break;
 
-//   case false:
+  case false:
 
-//     if (!IS_TEST) {
+    if (!IS_TEST) {
 
-//       var dashboard = new Dashboard();
-//       CONFIG.plugins.push(new DashboardPlugin(dashboard.setData));
-//       CONFIG.plugins.push(new LiveReloadPlugin());
-//     }
-//     break;
-// }
+      const Dashboard = require('webpack-dashboard');
+      const DashboardPlugin = require('webpack-dashboard/plugin');
+      CONFIG.plugins.push(new DashboardPlugin(Dashboard.setData));
+    }
+    break;
+}
 
 module.exports = CONFIG;
