@@ -7,9 +7,12 @@ before_install:
 install:
 - npm install typings
 - npm install protractor
+- npm install http-server -g
 - npm install
+- ./node_modules/protractor/bin/webdriver-manager update
 script:
 - npm run tslint
 - npm test
 - npm run build:local
+- http-server dist/ -p 3000 &
 - npm run protractor
