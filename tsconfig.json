@@ -5,10 +5,14 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "module": "CommonJS",
-    "moduleResolution": "node", // <-----
+    "moduleResolution": "node",
     "noImplicitAny": false,
     "outDir": "js",
-    "rootDir": "src"
+    "rootDir": "src",
+    "types": [
+      "node",
+      "jasmine"
+    ]
   },
   "exclude": [
     "node_modules",
