@@ -24,7 +24,7 @@ const CONFIG = {
   },
   plugins: [
     new Webpack.DefinePlugin({
-      'process.env.PRODUCTION': IS_BUILD,
+      'process.env.PRODUCTION': (USE_CONFIG === 'production'),
       'process.env.DEVELOPMENT': !IS_BUILD,
       'process.env.USE_CONFIG': USE_CONFIG,
       'process.env.IS_TEST': IS_TEST
