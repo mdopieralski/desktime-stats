@@ -25,7 +25,7 @@ describe('dHeaderComponent', () => {
         const el = fixture.debugElement.nativeElement as HTMLElement;
         const anchors = el.querySelectorAll('.page-nav ul li a');
 
-        expect(anchors[0].textContent).toBe('home');
+        expect(anchors[0].textContent).toBe('hello');
         expect(anchors[1].textContent).toBe('stats');
         expect(anchors[2].textContent).toBe('settings');
     }));
