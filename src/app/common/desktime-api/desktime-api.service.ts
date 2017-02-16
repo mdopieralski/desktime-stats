@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
@@ -30,35 +31,39 @@ export class DesktimeApiService {
   }
   private extractEmployee(res: Response) {
 
+
     const body = res.json();
     const toArray = object => Object.keys(object).map(key => object[key]);
 
-    body.apps = Object.keys(body.apps)
-      .reduce(function(acc, key) {
+    if (!body.error) {
 
-        let newKey = '';
+      body.apps = Object.keys(body.apps)
+        .reduce(function(acc, key) {
 
-        switch (key) {
-          case '0':
+          let newKey = '';
 
-            newKey = 'neutral';
-            break;
+          switch (key) {
+            case '0':
 
-          case '1':
+              newKey = 'neutral';
+              break;
 
-            newKey = 'productive';
-            break;
+            case '1':
 
-          case '-1':
+              newKey = 'productive';
+              break;
 
-            newKey = 'unproductive';
-            break;
-        }
+            case '-1':
 
-        acc[newKey] = toArray(body.apps[key]);
+              newKey = 'unproductive';
+              break;
+          }
 
-        return acc;
-      }, {});
+          acc[newKey] = toArray(body.apps[key]);
+
+          return acc;
+        }, {});
+    }
 
     return body || {};
   }
