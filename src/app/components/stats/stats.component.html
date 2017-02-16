@@ -11,5 +11,11 @@
 			<time-table [table-data]="employee.apps.neutral"></time-table>
 			<time-table [table-data]="employee.apps.unproductive"></time-table>
 		</section>
+		<p class="message warning text-center" *ngIf="missingSettings">
+			Ups! Seems that, you didn't wen't to <a uiSref="settings" uiSrefActive="active">settings page</a>. API key and your hour wage is missing ! :(
+		</p>
+		<p class="message error text-center" *ngIf="apiError">
+			Ups! Seems that, you we could'nt connect to Desktime API. <br>Please double check your API key in <a uiSref="settings" uiSrefActive="active">settings page</a>.
+		</p>
 	</article>
 </div>

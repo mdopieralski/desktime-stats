@@ -5,18 +5,28 @@
 				Settings
 			</h1>
 		</header>
-		<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+		<form (ngSubmit)="save()" #settingsForm="ngForm">
 			<label for="apiKey">
 				Api key
 				<input type="text" name="apiKey" id="apiKey" [(ngModel)]="settingsModel.apiKey" required/>
 			</label>
 			<label for="hourValue">
 				Hour value
-				<input type="text" name="hourValue" id="hourValue" [(ngModel)]="settingsModel.hourValue" required/>
+				<input type="number" name="hourValue" id="hourValue" [(ngModel)]="settingsModel.hourValue" required/>
 			</label>
-			<button type="submit">
+			<button type="submit" class="btn -btn-green" [disabled]="settingsForm.invalid">
 				Save
 			</button>
+			<button type="button" class="btn -btn-red" (click)="reset()">
+				Reset
+			</button>
+			<div class="clearfix"></div>
 		</form>
+		<p class="message success" *ngIf="successMessage">
+			Your settings has been successfuly saved to local storage.
+		</p>
+		<p class="message warning" *ngIf="resetMessage">
+			Your settings has been successfuly removed from local storage.
+		</p>
 	</article>
 </div>

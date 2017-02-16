@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+require('./settings.less');
+
 @Component({
     selector: 'settings-component',
     template: require('./settings.component.html')
@@ -10,6 +12,8 @@ export class SettingsComponent {
         apiKey: '',
         hourValue: ''
     };
+    successMessage = false;
+    resetMessage = false;
 
     constructor() {
 
@@ -23,10 +27,29 @@ export class SettingsComponent {
             }
         }
     }
-
-    onSubmit() {
+    save() {
 
         localStorage.setItem('DesktimeSettings', JSON.stringify(this.settingsModel));
-        alert('success');
+        this.successMessage = true;
+
+        setTimeout(function() {
+
+            this.successMessage = false;
+        }, 1500);
+    }
+    reset() {
+
+        localStorage.removeItem('DesktimeSettings');
+
+        this.settingsModel = {
+            apiKey: '',
+            hourValue: ''
+        };
+        this.resetMessage = true;
+
+        setTimeout(function() {
+
+            this.resetMessage = false;
+        }, 1500);
     }
 }

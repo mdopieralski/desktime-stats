@@ -16,33 +16,45 @@ export class StatsComponent {
     };
     statsLoaded = false;
     company = {};
+    missingSettings = false;
+    apiError = false;
 
     constructor(private DesktimeAPI: DesktimeApiService) {
 
         let $localStorageData = localStorage['DesktimeSettings'];
 
-        if ($localStorageData) {
+        if (!!$localStorageData) {
 
             $localStorageData = JSON.parse($localStorageData);
 
             DesktimeAPI.getCompany($localStorageData.apiKey)
                 .subscribe(res => {
 
-                    this.company = res;
+                    if (!res.error) {
+
+                        this.company = res;
+
+                        DesktimeAPI.getEmployee($localStorageData.apiKey)
+                            .subscribe(res => {
+
+                                if (!res.error) {
+
+                                    this.employee = res;
+
+                                    setTimeout(() => {
+
+                                        this.statsLoaded = true;
+                                    }, 1000);
+                                }
+                            });
+                    } else {
+
+                        this.apiError = true;
+                    }
                 });
+        } else {
 
-            DesktimeAPI.getEmployee($localStorageData.apiKey)
-                .subscribe(res => {
-
-                    console.log(res);
-
-                    this.employee = res;
-
-                    setTimeout(() => {
-
-                        this.statsLoaded = true;
-                    }, 1000);
-                });
+            this.missingSettings = true;
         }
     }
 }
