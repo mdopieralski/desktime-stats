@@ -1,0 +1,39 @@
+ul.green-stars{
+    list-style: none;
+
+    li{
+        line-height: 1.7;
+
+        &:before{
+            content: '⁕';
+            color: @DT_GREEN;
+            margin-right: 5px;
+        }
+    }
+}
+
+ul.steps{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+
+    li{
+        margin-bottom: 10px;
+
+        span{
+            font-size: 30px;
+            color: @DT_GREEN;
+            border: 1px solid @DT_GREEN;
+            width: 25px;
+            height: 25px;
+            font-size: 15px;
+            line-height: 23px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 100%;
+            margin-right: 5px;
+        }
+
+        line-height: 30px;
+    }
+}

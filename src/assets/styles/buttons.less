@@ -1,0 +1,45 @@
+button.btn{
+
+    border: 0;
+    font-size: 15px;
+    font-family: 'Lato Thin';
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    
+    &:focus,
+    &:active{
+        outline: 0;
+    }
+
+    &[disabled]{
+        text-decoration: line-through;
+        opacity: 0.5;
+        cursor: no-drop;
+    }
+
+    &.-btn-green{
+
+        background-color: @DT_GREEN;
+        color: @WHITE;
+    }
+
+    &.-btn-red{
+
+        background-color: @DT_RED;
+        color: @WHITE;
+    }
+
+    &.-btn-orange{
+
+        background-color: @DT_ORANGE;
+        color: @WHITE;
+    }
+
+    &.-btn-blue{
+
+        background-color: @DT_BLUE;
+        color: @WHITE;
+    }
+}
