@@ -15,7 +15,6 @@
         "start:production": "npm start --appConfig=production",
         "tslint": "./node_modules/tslint/bin/tslint './src/**/*.ts' -c ./tslint.json -s node_modules/tslint-stylish -t stylish",
         "precommit": "npm run tslint",
-        "postinstall": "./node_modules/protractor/bin/webdriver-manager update",
         "protractor": "./node_modules/protractor/bin/protractor ./protractor.config.js",
         "commit": "git-cz",
         "test": "TEST=true ./node_modules/karma/bin/karma start ./karma.config.js"
