@@ -18,7 +18,9 @@ exports.config = {
   },
   directConnect: true,
   capabilities: {
-    'browserName': 'firefox'
+    browserName: 'firefox',
+    version: '',
+    platform: 'ANY'
   },
   onPrepare: function() {
     browser.ignoreSynchronization = true;
